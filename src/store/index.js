@@ -27,8 +27,7 @@ export default {
             );
         },
         handleChangeStatus:function(state,index){
-            state.todoList[index].status  === 'completed' ? 'active' : 'completed'; 
-           
+ 
         },
         currentFilterStatus:function(state,currentFilter){
             state.currentFilter = currentFilter;
@@ -42,10 +41,45 @@ export default {
         loading:function(){
             
         }
+    },
+    actions:{
+        //请求网络
+        queryResponse:function(store){
+            const url ="";
+            axios.get(url).then(function(response){
+                let request = response.data;
+                console.log(response);
+                store.commit('initToDos',request);
+            }).catch(
+                function(error){
+                console.log(error.reponse);
+            })
+        },
+        addResponse:function(store,inputParam){
+            const url = "";
+            console.log(inputParam,"11111");
+            axios.post(url,{
+                content:inputParam,
+                status:"actice"
+            }).then(function(response){
+                console.log(response);
 
+                store.queryResponse();
+            }).catch(
+                function(error){
+                console.log(error);
+            })
+        },
+        putResponse:function(){
 
+        },
+        deleteResponse:function(){
+            const url = "";
+            let param={id:''};
+            axios.delete(url, {data: param})
+              .then(function(response) {
+
+                })
+        }
     }
-
-
-
 }

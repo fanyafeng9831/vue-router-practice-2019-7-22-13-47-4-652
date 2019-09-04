@@ -1,31 +1,29 @@
 <template>
-  <div id="playId">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"/> -->
-    <p>战斗到12点</p>
-    <router-view></router-view>
-  </div>
+    <div>
+        <h1>欢迎 !!!</h1>
+        <input type="text" v-model= "inputText">
+        <button @click="toWelcome">确定</button>
+    </div>
+    <!-- <router-view/> -->
 </template>
 
 <script>
 export default {
-  name: "play"
-};
+    name:'login',
+    data:function(){
+        return {
+             inputText:""
+        }
+    },
+    methods:{
+        toWelcome:function(){
+            this.$router.push('/todoList/'+this.inputText);
+        }
+    }
+
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
+
 </style>

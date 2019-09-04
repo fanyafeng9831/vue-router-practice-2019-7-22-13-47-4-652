@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import study from './components/study.vue'
+import selfIntroduce from './components/selfIntroduce.vue'
+import login from './components/login.vue'
 import axios from 'axios'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    study
+    selfIntroduce,
+    login
   }
 }
 </script>
